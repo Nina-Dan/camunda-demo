@@ -1,0 +1,849 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="b37faf9" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.1.0" camunda:diagramRelationId="e4255152-9799-4faa-89a9-f673eab5cd71">
+  <bpmn:process id="credit_process" name="Credit process" isExecutable="true">
+    <bpmn:extensionElements>
+      <zeebe:userTaskForm id="userTaskForm_2e78cpa">{
+  "components": [
+    {
+      "label": "First Name",
+      "type": "textfield",
+      "id": "Field_0jpp25l",
+      "key": "firstName",
+      "disabled": true
+    },
+    {
+      "label": "Last Name",
+      "type": "textfield",
+      "id": "Field_0f7g1si",
+      "key": "lastName",
+      "disabled": true
+    },
+    {
+      "label": "Surname",
+      "type": "textfield",
+      "id": "Field_01pq1r0",
+      "key": "surname",
+      "disabled": true
+    },
+    {
+      "label": "Passport Number",
+      "type": "textfield",
+      "id": "Field_1cz0hl1",
+      "key": "passNumber",
+      "disabled": true
+    },
+    {
+      "subtype": "date",
+      "dateLabel": "Birth Day",
+      "label": "Date time",
+      "type": "datetime",
+      "id": "Field_1f2g4l3",
+      "key": "dateOfBirth",
+      "disabled": true
+    },
+    {
+      "label": "Amount (RUB)",
+      "type": "number",
+      "id": "Field_14jo999",
+      "key": "amount",
+      "disabled": true
+    },
+    {
+      "label": "Term (months)",
+      "type": "number",
+      "id": "Field_1bw5a37",
+      "key": "term",
+      "disabled": true
+    },
+    {
+      "label": "Is Debt?",
+      "type": "checkbox",
+      "id": "Field_06cepal",
+      "key": "isDebt",
+      "disabled": true,
+      "defaultValue": true
+    },
+    {
+      "values": [
+        {
+          "label": "Low",
+          "value": "Low"
+        },
+        {
+          "label": "Medium",
+          "value": "Medium"
+        },
+        {
+          "label": "Heigh",
+          "value": "Heigh"
+        }
+      ],
+      "label": "Level of risk",
+      "type": "radio",
+      "id": "Field_12q5eww",
+      "key": "risk",
+      "disabled": true
+    },
+    {
+      "values": [
+        {
+          "label": "Agree",
+          "value": "true"
+        },
+        {
+          "label": "Disagree",
+          "value": "false"
+        }
+      ],
+      "label": "Approval",
+      "type": "radio",
+      "id": "Field_1fs9243",
+      "key": "security_agreed",
+      "defaultValue": "Agree"
+    }
+  ],
+  "schemaVersion": 7,
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "b37faf9"
+  },
+  "type": "default",
+  "id": "Credit_form",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.1.0"
+}</zeebe:userTaskForm>
+      <zeebe:userTaskForm id="userTaskForm_10scdp6">{
+  "components": [
+    {
+      "label": "First Name",
+      "type": "textfield",
+      "id": "Field_0jpp25l",
+      "key": "firstName",
+      "disabled": true
+    },
+    {
+      "label": "Last Name",
+      "type": "textfield",
+      "id": "Field_0f7g1si",
+      "key": "lastName",
+      "disabled": true
+    },
+    {
+      "label": "Surname",
+      "type": "textfield",
+      "id": "Field_01pq1r0",
+      "key": "surname",
+      "disabled": true
+    },
+    {
+      "label": "Passport Number",
+      "type": "textfield",
+      "id": "Field_1cz0hl1",
+      "key": "passNumber",
+      "disabled": true
+    },
+    {
+      "subtype": "date",
+      "dateLabel": "Birth Day",
+      "label": "Date time",
+      "type": "datetime",
+      "id": "Field_1f2g4l3",
+      "key": "dateOfBirth",
+      "disabled": true
+    },
+    {
+      "label": "Amount (RUB)",
+      "type": "number",
+      "id": "Field_14jo999",
+      "key": "amount",
+      "disabled": true
+    },
+    {
+      "label": "Term (months)",
+      "type": "number",
+      "id": "Field_1bw5a37",
+      "key": "term",
+      "disabled": true
+    },
+    {
+      "label": "Is Debt?",
+      "type": "checkbox",
+      "id": "Field_06cepal",
+      "key": "isDebt",
+      "disabled": true,
+      "defaultValue": true
+    },
+    {
+      "values": [
+        {
+          "label": "Low",
+          "value": "Low"
+        },
+        {
+          "label": "Medium",
+          "value": "Medium"
+        },
+        {
+          "label": "Heigh",
+          "value": "Heigh"
+        }
+      ],
+      "label": "Level of risk",
+      "type": "radio",
+      "id": "Field_12q5eww",
+      "key": "risk",
+      "disabled": true
+    },
+    {
+      "values": [
+        {
+          "label": "Agree",
+          "value": "true"
+        },
+        {
+          "label": "Disagree",
+          "value": "false"
+        }
+      ],
+      "label": "Approval",
+      "type": "radio",
+      "id": "Field_1fs9243",
+      "key": "risk_agreed",
+      "defaultValue": "Agree"
+    }
+  ],
+  "schemaVersion": 7,
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "b37faf9"
+  },
+  "type": "default",
+  "id": "Credit_form",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.1.0"
+}</zeebe:userTaskForm>
+      <zeebe:userTaskForm id="userTaskForm_2hrhuel">{
+  "components": [
+    {
+      "label": "First Name",
+      "type": "textfield",
+      "id": "Field_0jpp25l",
+      "key": "firstName",
+      "disabled": true
+    },
+    {
+      "label": "Last Name",
+      "type": "textfield",
+      "id": "Field_0f7g1si",
+      "key": "lastName",
+      "disabled": true
+    },
+    {
+      "label": "Surname",
+      "type": "textfield",
+      "id": "Field_01pq1r0",
+      "key": "surname",
+      "disabled": true
+    },
+    {
+      "label": "Passport Number",
+      "type": "textfield",
+      "id": "Field_1cz0hl1",
+      "key": "passNumber",
+      "disabled": true
+    },
+    {
+      "subtype": "date",
+      "dateLabel": "Birth Day",
+      "label": "Date time",
+      "type": "datetime",
+      "id": "Field_1f2g4l3",
+      "key": "dateOfBirth",
+      "disabled": true
+    },
+    {
+      "label": "Amount (RUB)",
+      "type": "number",
+      "id": "Field_14jo999",
+      "key": "amount",
+      "disabled": true
+    },
+    {
+      "label": "Term (months)",
+      "type": "number",
+      "id": "Field_1bw5a37",
+      "key": "term",
+      "disabled": true
+    },
+    {
+      "values": [
+        {
+          "label": "Agree",
+          "value": "true"
+        },
+        {
+          "label": "Disagree",
+          "value": "false"
+        }
+      ],
+      "label": "Approval",
+      "type": "radio",
+      "id": "Field_1fs9243",
+      "key": "agreed",
+      "defaultValue": "Agree"
+    }
+  ],
+  "schemaVersion": 7,
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "b37faf9"
+  },
+  "type": "default",
+  "id": "Credit_form",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.1.0"
+}</zeebe:userTaskForm>
+      <zeebe:properties>
+        <zeebe:property />
+      </zeebe:properties>
+      <zeebe:userTaskForm id="userTaskForm_1tf8e8p">{
+  "components": [
+    {
+      "text": "Application canceled",
+      "type": "text",
+      "id": "Field_1ublu8f"
+    },
+    {
+      "label": "First Name",
+      "type": "textfield",
+      "id": "Field_0jpp25l",
+      "key": "firstName",
+      "disabled": true
+    },
+    {
+      "label": "Last Name",
+      "type": "textfield",
+      "id": "Field_0f7g1si",
+      "key": "lastName",
+      "disabled": true
+    },
+    {
+      "label": "Surname",
+      "type": "textfield",
+      "id": "Field_01pq1r0",
+      "key": "surname",
+      "disabled": true
+    },
+    {
+      "label": "Passport Number",
+      "type": "textfield",
+      "id": "Field_1cz0hl1",
+      "key": "passNumber",
+      "disabled": true
+    },
+    {
+      "subtype": "date",
+      "dateLabel": "Birth Day",
+      "label": "Date time",
+      "type": "datetime",
+      "id": "Field_1f2g4l3",
+      "key": "dateOfBirth",
+      "disabled": true
+    },
+    {
+      "label": "Amount (RUB)",
+      "type": "number",
+      "id": "Field_14jo999",
+      "key": "amount",
+      "disabled": true
+    },
+    {
+      "label": "Term (months)",
+      "type": "number",
+      "id": "Field_1bw5a37",
+      "key": "term",
+      "disabled": true
+    },
+    {
+      "label": "Reason to cancel",
+      "type": "textfield",
+      "id": "Field_0b1iomr",
+      "key": "message",
+      "disabled": true
+    }
+  ],
+  "schemaVersion": 7,
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "b37faf9"
+  },
+  "type": "default",
+  "id": "Credit_form",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.1.0"
+}</zeebe:userTaskForm>
+    </bpmn:extensionElements>
+    <bpmn:startEvent id="StartEvent_application_received" name="Credit application received">
+      <bpmn:outgoing>Flow_0qo052y</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0qo052y" sourceRef="StartEvent_application_received" targetRef="Activity_check_input_data" />
+    <bpmn:sequenceFlow id="Flow_1hq54ic" sourceRef="Activity_check_input_data" targetRef="Activity_consider_application" />
+    <bpmn:serviceTask id="Activity_check_input_data" name="Check input data">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="CheckInputData" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0qo052y</bpmn:incoming>
+      <bpmn:outgoing>Flow_1hq54ic</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:boundaryEvent id="Event_wrong_data" name="Wrong data received" attachedToRef="Activity_check_input_data">
+      <bpmn:outgoing>Flow_wrong_data</bpmn:outgoing>
+      <bpmn:errorEventDefinition id="ErrorEventDefinition_10jcyz8" errorRef="Error_1q5rdkr" />
+    </bpmn:boundaryEvent>
+    <bpmn:endEvent id="Event_wrong_data_received" name="Application with wrong data received">
+      <bpmn:incoming>Flow_wrong_data</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_wrong_data" sourceRef="Event_wrong_data" targetRef="Event_wrong_data_received" />
+    <bpmn:sequenceFlow id="Flow_considered" sourceRef="Activity_consider_application" targetRef="Gateway_is_agreed" />
+    <bpmn:userTask id="Activity_consider_application" name="Consider application">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formKey="camunda-forms:bpmn:userTaskForm_2hrhuel" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1hq54ic</bpmn:incoming>
+      <bpmn:outgoing>Flow_considered</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_is_agreed" name="Is agreed?" default="Flow_no_agreed">
+      <bpmn:incoming>Flow_considered</bpmn:incoming>
+      <bpmn:outgoing>Flow_agreed</bpmn:outgoing>
+      <bpmn:outgoing>Flow_no_agreed</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_agreed" name="Yes" sourceRef="Gateway_is_agreed" targetRef="Gateway_to_agree">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=agreed="true"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:boundaryEvent id="Event_delay" name="One day passed" attachedToRef="Activity_consider_application">
+      <bpmn:outgoing>Flow_delay</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_0whuuvg">
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">P1D</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:boundaryEvent>
+    <bpmn:sequenceFlow id="Flow_delay" sourceRef="Event_delay" targetRef="Activity_get_debt" />
+    <bpmn:serviceTask id="Activity_get_debt" name="Get debt">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="GetDebtFlag" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_delay</bpmn:incoming>
+      <bpmn:outgoing>Flow_1c2ld7x</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:businessRuleTask id="Activity_get_credit_risk" name="Get credit risk">
+      <bpmn:extensionElements>
+        <zeebe:calledDecision decisionId="Decision_risk" resultVariable="risk" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1c2ld7x</bpmn:incoming>
+      <bpmn:outgoing>Flow_1ttsv9u</bpmn:outgoing>
+    </bpmn:businessRuleTask>
+    <bpmn:exclusiveGateway id="Gateway_check_risk">
+      <bpmn:incoming>Flow_1ttsv9u</bpmn:incoming>
+      <bpmn:outgoing>flow_medium_risk</bpmn:outgoing>
+      <bpmn:outgoing>Flow_high_risk</bpmn:outgoing>
+      <bpmn:outgoing>Flow_low_risk</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_1ttsv9u" sourceRef="Activity_get_credit_risk" targetRef="Gateway_check_risk" />
+    <bpmn:exclusiveGateway id="Gateway_to_agree">
+      <bpmn:incoming>Flow_agreed</bpmn:incoming>
+      <bpmn:incoming>Flow_0bpj1rh</bpmn:incoming>
+      <bpmn:outgoing>Flow_0rxuktt</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0rxuktt" sourceRef="Gateway_to_agree" targetRef="Event_0tdk9dg" />
+    <bpmn:userTask id="Activity_check_security" name="Check (Security Service)">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formKey="camunda-forms:bpmn:userTaskForm_2e78cpa" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0sipmkv</bpmn:incoming>
+      <bpmn:outgoing>Flow_07jd100</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_1c2ld7x" sourceRef="Activity_get_debt" targetRef="Activity_get_credit_risk" />
+    <bpmn:sequenceFlow id="flow_medium_risk" name="Medium risk" sourceRef="Gateway_check_risk" targetRef="Gateway_additional_checking">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=risk="Medium"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_no_agreed" name="No" sourceRef="Gateway_is_agreed" targetRef="Gateway_to_disagree" />
+    <bpmn:exclusiveGateway id="Gateway_to_disagree">
+      <bpmn:incoming>Flow_no_agreed</bpmn:incoming>
+      <bpmn:incoming>Flow_high_risk</bpmn:incoming>
+      <bpmn:outgoing>Flow_0dm1ymv</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0dm1ymv" sourceRef="Gateway_to_disagree" targetRef="Event_0ucdhmh" />
+    <bpmn:sequenceFlow id="Flow_high_risk" name="High risk" sourceRef="Gateway_check_risk" targetRef="Gateway_to_disagree">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=risk="High"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_low_risk" name="Low risk" sourceRef="Gateway_check_risk" targetRef="Gateway_to_agree2">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=risk="Low"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:parallelGateway id="Gateway_additional_checking">
+      <bpmn:incoming>flow_medium_risk</bpmn:incoming>
+      <bpmn:outgoing>Flow_0sipmkv</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1n9wwng</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:sequenceFlow id="Flow_0sipmkv" sourceRef="Gateway_additional_checking" targetRef="Activity_check_security" />
+    <bpmn:sequenceFlow id="Flow_1n9wwng" sourceRef="Gateway_additional_checking" targetRef="Activity_check_risks" />
+    <bpmn:userTask id="Activity_check_risks" name="Check (Risks Service)">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formKey="camunda-forms:bpmn:userTaskForm_10scdp6" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1n9wwng</bpmn:incoming>
+      <bpmn:outgoing>Flow_0mvajou</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_07jd100" sourceRef="Activity_check_security" targetRef="Gateway_agreed_by_security" />
+    <bpmn:sequenceFlow id="Flow_0mvajou" sourceRef="Activity_check_risks" targetRef="Gateway_agreed_by_risks" />
+    <bpmn:sequenceFlow id="Flow_0w422yw" sourceRef="Gateway_wait_second_flag" targetRef="Gateway_to_agree2" />
+    <bpmn:endEvent id="Event_0tdk9dg" name="Application agreed">
+      <bpmn:incoming>Flow_0rxuktt</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:exclusiveGateway id="Gateway_agreed_by_security" name="Is agreed (security)?" default="Flow_1cnj53a">
+      <bpmn:incoming>Flow_07jd100</bpmn:incoming>
+      <bpmn:outgoing>Flow_1sz9squ</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1cnj53a</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_1sz9squ" name="Yes" sourceRef="Gateway_agreed_by_security" targetRef="Gateway_wait_second_flag">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=security_agreed="true"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:parallelGateway id="Gateway_wait_second_flag">
+      <bpmn:incoming>Flow_1sz9squ</bpmn:incoming>
+      <bpmn:incoming>Flow_001apir</bpmn:incoming>
+      <bpmn:outgoing>Flow_0w422yw</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:exclusiveGateway id="Gateway_agreed_by_risks" name="Is agreed (risks)?" default="Flow_1ru9x83">
+      <bpmn:incoming>Flow_0mvajou</bpmn:incoming>
+      <bpmn:outgoing>Flow_001apir</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1ru9x83</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_001apir" name="Yes" sourceRef="Gateway_agreed_by_risks" targetRef="Gateway_wait_second_flag">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=risk_agreed="true"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:endEvent id="Event_1ka3e5a" name="Application disagreed">
+      <bpmn:incoming>Flow_1efztbj</bpmn:incoming>
+      <bpmn:terminateEventDefinition id="TerminateEventDefinition_15ul4e8" />
+    </bpmn:endEvent>
+    <bpmn:exclusiveGateway id="Gateway_disagree_end">
+      <bpmn:incoming>Flow_1ru9x83</bpmn:incoming>
+      <bpmn:incoming>Flow_1cnj53a</bpmn:incoming>
+      <bpmn:outgoing>Flow_1efztbj</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_1ru9x83" name="No" sourceRef="Gateway_agreed_by_risks" targetRef="Gateway_disagree_end" />
+    <bpmn:sequenceFlow id="Flow_1cnj53a" name="No" sourceRef="Gateway_agreed_by_security" targetRef="Gateway_disagree_end" />
+    <bpmn:sequenceFlow id="Flow_1efztbj" sourceRef="Gateway_disagree_end" targetRef="Event_1ka3e5a" />
+    <bpmn:endEvent id="Event_0ucdhmh" name="Application disagreed">
+      <bpmn:incoming>Flow_0dm1ymv</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:exclusiveGateway id="Gateway_to_agree2">
+      <bpmn:incoming>Flow_low_risk</bpmn:incoming>
+      <bpmn:incoming>Flow_0w422yw</bpmn:incoming>
+      <bpmn:outgoing>Flow_0bpj1rh</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0bpj1rh" sourceRef="Gateway_to_agree2" targetRef="Gateway_to_agree" />
+    <bpmn:subProcess id="Activity_cancel" name="Cancel process" triggeredByEvent="true">
+      <bpmn:userTask id="Activity_read_message" name="Read message">
+        <bpmn:extensionElements>
+          <zeebe:formDefinition formKey="camunda-forms:bpmn:userTaskForm_1tf8e8p" />
+        </bpmn:extensionElements>
+        <bpmn:incoming>Flow_0tkuaqm</bpmn:incoming>
+        <bpmn:outgoing>Flow_13namc8</bpmn:outgoing>
+      </bpmn:userTask>
+      <bpmn:endEvent id="Event_0skj7k8" name="Application cancelled">
+        <bpmn:incoming>Flow_13namc8</bpmn:incoming>
+      </bpmn:endEvent>
+      <bpmn:sequenceFlow id="Flow_13namc8" sourceRef="Activity_read_message" targetRef="Event_0skj7k8" />
+      <bpmn:sequenceFlow id="Flow_0tkuaqm" sourceRef="Event_cancel" targetRef="Activity_read_message" />
+      <bpmn:startEvent id="Event_cancel" name="Cancelation message received">
+        <bpmn:outgoing>Flow_0tkuaqm</bpmn:outgoing>
+        <bpmn:messageEventDefinition id="MessageEventDefinition_0nq1jys" messageRef="Message_1d7s551" />
+      </bpmn:startEvent>
+    </bpmn:subProcess>
+  </bpmn:process>
+  <bpmn:error id="Error_1q5rdkr" name="Not_valid_input_data" errorCode="Not_valid_input_data" />
+  <bpmn:message id="Message_2qm8fu8" name="Message_2qm8fu8">
+    <bpmn:extensionElements>
+      <zeebe:subscription correlationKey="=&#34;123&#34;" />
+    </bpmn:extensionElements>
+  </bpmn:message>
+  <bpmn:message id="Message_2vv0223" name="Message_2vv0223">
+    <bpmn:extensionElements>
+      <zeebe:subscription correlationKey="=&#34;123&#34;" />
+    </bpmn:extensionElements>
+  </bpmn:message>
+  <bpmn:message id="Message_1d7s551" name="cancel_application">
+    <bpmn:extensionElements>
+      <zeebe:subscription correlationKey="=passNumber" />
+    </bpmn:extensionElements>
+  </bpmn:message>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="credit_process">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_application_received">
+        <dc:Bounds x="200" y="270" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="177" y="313" width="83" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_16l0moq_di" bpmnElement="Activity_check_input_data">
+        <dc:Bounds x="280" y="248" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_13z54c3_di" bpmnElement="Event_wrong_data_received">
+        <dc:Bounds x="1772" y="82" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1754" y="125" width="78" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1exuev9_di" bpmnElement="Activity_consider_application">
+        <dc:Bounds x="420" y="248" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_17swh92_di" bpmnElement="Gateway_is_agreed" isMarkerVisible="true">
+        <dc:Bounds x="1455" y="255" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1404" y="252" width="52" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1ngvfpo_di" bpmnElement="Activity_get_debt">
+        <dc:Bounds x="420" y="510" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0wl249a_di" bpmnElement="Activity_get_credit_risk">
+        <dc:Bounds x="580" y="510" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0lc0icx_di" bpmnElement="Gateway_check_risk" isMarkerVisible="true">
+        <dc:Bounds x="715" y="525" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1oirbkd_di" bpmnElement="Gateway_to_agree" isMarkerVisible="true">
+        <dc:Bounds x="1655" y="255" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1cxau3n_di" bpmnElement="Activity_check_security">
+        <dc:Bounds x="980" y="400" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0ptv193_di" bpmnElement="Gateway_to_disagree" isMarkerVisible="true">
+        <dc:Bounds x="1455" y="345" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0w0hl98_di" bpmnElement="Gateway_additional_checking">
+        <dc:Bounds x="855" y="525" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1g0b2tj_di" bpmnElement="Activity_check_risks">
+        <dc:Bounds x="980" y="620" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1uzcwf7_di" bpmnElement="Event_0tdk9dg">
+        <dc:Bounds x="1772" y="262" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1763" y="306" width="54" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_07fibyk_di" bpmnElement="Gateway_agreed_by_security" isMarkerVisible="true">
+        <dc:Bounds x="1175" y="415" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1173" y="378" width="54" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1a1ctx6_di" bpmnElement="Gateway_wait_second_flag">
+        <dc:Bounds x="1415" y="525" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0eeqpwp_di" bpmnElement="Gateway_agreed_by_risks" isMarkerVisible="true">
+        <dc:Bounds x="1175" y="635" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1157" y="695" width="86" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1jf1kne_di" bpmnElement="Event_1ka3e5a">
+        <dc:Bounds x="1332" y="532" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1323" y="575" width="54" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_13q6fqi_di" bpmnElement="Gateway_disagree_end" isMarkerVisible="true">
+        <dc:Bounds x="1175" y="525" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0qz9xxx_di" bpmnElement="Event_0ucdhmh">
+        <dc:Bounds x="1632" y="352" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1613" y="404" width="54" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_17velum_di" bpmnElement="Gateway_to_agree2" isMarkerVisible="true">
+        <dc:Bounds x="1655" y="525" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1hhudlt_di" bpmnElement="Activity_cancel" isExpanded="true">
+        <dc:Bounds x="270" y="720" width="350" height="190" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1yk7e83_di" bpmnElement="Activity_read_message">
+        <dc:Bounds x="395" y="780" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0skj7k8_di" bpmnElement="Event_0skj7k8">
+        <dc:Bounds x="547" y="802" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="540" y="845" width="54" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0h6ndmk_di" bpmnElement="Event_cancel">
+        <dc:Bounds x="307" y="802" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="300" y="845" width="57" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_13namc8_di" bpmnElement="Flow_13namc8">
+        <di:waypoint x="495" y="820" />
+        <di:waypoint x="547" y="820" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0tkuaqm_di" bpmnElement="Flow_0tkuaqm">
+        <di:waypoint x="343" y="820" />
+        <di:waypoint x="395" y="820" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Event_1y3dsfn_di" bpmnElement="Event_delay">
+        <dc:Bounds x="452" y="310" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="380" y="350" width="81" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_18qsb8a_di" bpmnElement="Event_wrong_data">
+        <dc:Bounds x="342" y="230" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="361" y="206" width="57" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0qo052y_di" bpmnElement="Flow_0qo052y">
+        <di:waypoint x="236" y="288" />
+        <di:waypoint x="280" y="288" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1hq54ic_di" bpmnElement="Flow_1hq54ic">
+        <di:waypoint x="380" y="288" />
+        <di:waypoint x="420" y="288" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1972uyi_di" bpmnElement="Flow_wrong_data">
+        <di:waypoint x="360" y="230" />
+        <di:waypoint x="360" y="100" />
+        <di:waypoint x="1772" y="100" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0131kqx_di" bpmnElement="Flow_considered">
+        <di:waypoint x="520" y="280" />
+        <di:waypoint x="1455" y="280" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1vwom8s_di" bpmnElement="Flow_agreed">
+        <di:waypoint x="1505" y="280" />
+        <di:waypoint x="1655" y="280" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1519" y="262" width="20" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1gw3652_di" bpmnElement="Flow_delay">
+        <di:waypoint x="470" y="346" />
+        <di:waypoint x="470" y="510" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ttsv9u_di" bpmnElement="Flow_1ttsv9u">
+        <di:waypoint x="680" y="550" />
+        <di:waypoint x="715" y="550" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0rxuktt_di" bpmnElement="Flow_0rxuktt">
+        <di:waypoint x="1705" y="280" />
+        <di:waypoint x="1772" y="280" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1c2ld7x_di" bpmnElement="Flow_1c2ld7x">
+        <di:waypoint x="520" y="550" />
+        <di:waypoint x="580" y="550" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1x8l661_di" bpmnElement="flow_medium_risk">
+        <di:waypoint x="765" y="550" />
+        <di:waypoint x="855" y="550" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="753" y="517" width="58" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1a72a06_di" bpmnElement="Flow_no_agreed">
+        <di:waypoint x="1480" y="305" />
+        <di:waypoint x="1480" y="345" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1493" y="313" width="14" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0dm1ymv_di" bpmnElement="Flow_0dm1ymv">
+        <di:waypoint x="1505" y="370" />
+        <di:waypoint x="1632" y="370" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1swubqq_di" bpmnElement="Flow_high_risk">
+        <di:waypoint x="740" y="525" />
+        <di:waypoint x="740" y="370" />
+        <di:waypoint x="1455" y="370" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="688" y="477" width="43" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0p889jz_di" bpmnElement="Flow_low_risk">
+        <di:waypoint x="740" y="580" />
+        <di:waypoint x="740" y="740" />
+        <di:waypoint x="1680" y="740" />
+        <di:waypoint x="1680" y="575" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="688" y="607" width="44" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0sipmkv_di" bpmnElement="Flow_0sipmkv">
+        <di:waypoint x="880" y="525" />
+        <di:waypoint x="880" y="440" />
+        <di:waypoint x="980" y="440" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1n9wwng_di" bpmnElement="Flow_1n9wwng">
+        <di:waypoint x="880" y="575" />
+        <di:waypoint x="880" y="660" />
+        <di:waypoint x="980" y="660" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_07jd100_di" bpmnElement="Flow_07jd100">
+        <di:waypoint x="1080" y="440" />
+        <di:waypoint x="1175" y="440" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0mvajou_di" bpmnElement="Flow_0mvajou">
+        <di:waypoint x="1080" y="660" />
+        <di:waypoint x="1175" y="660" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0w422yw_di" bpmnElement="Flow_0w422yw">
+        <di:waypoint x="1465" y="550" />
+        <di:waypoint x="1655" y="550" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1sz9squ_di" bpmnElement="Flow_1sz9squ">
+        <di:waypoint x="1225" y="440" />
+        <di:waypoint x="1440" y="440" />
+        <di:waypoint x="1440" y="525" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1324" y="422" width="20" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_001apir_di" bpmnElement="Flow_001apir">
+        <di:waypoint x="1225" y="660" />
+        <di:waypoint x="1440" y="660" />
+        <di:waypoint x="1440" y="575" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1324" y="642" width="20" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ru9x83_di" bpmnElement="Flow_1ru9x83">
+        <di:waypoint x="1200" y="635" />
+        <di:waypoint x="1200" y="575" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1208" y="602" width="14" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1cnj53a_di" bpmnElement="Flow_1cnj53a">
+        <di:waypoint x="1200" y="465" />
+        <di:waypoint x="1200" y="525" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1209" y="492" width="14" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1efztbj_di" bpmnElement="Flow_1efztbj">
+        <di:waypoint x="1225" y="550" />
+        <di:waypoint x="1332" y="550" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0bpj1rh_di" bpmnElement="Flow_0bpj1rh">
+        <di:waypoint x="1680" y="525" />
+        <di:waypoint x="1680" y="305" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
