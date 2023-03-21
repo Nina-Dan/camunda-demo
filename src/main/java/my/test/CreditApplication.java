@@ -42,7 +42,7 @@ public class CreditApplication {
         }
         if (isWrongNameField()) {
             log.debug("Wrong string field");
-            errMessage = "Wrong first name, last name or surname: " + firstName + lastName + surname;
+            errMessage = "Wrong first name, last name or surname: " + firstName + " " + lastName + " "+ surname;
             return false;
         }
         if (isWrongPassNumber()) {

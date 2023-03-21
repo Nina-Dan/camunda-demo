@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="b37faf9" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.1.0" camunda:diagramRelationId="e4255152-9799-4faa-89a9-f673eab5cd71">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="bf9e49e" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.1.0" camunda:diagramRelationId="e4255152-9799-4faa-89a9-f673eab5cd71">
   <bpmn:process id="credit_process" name="Credit process" isExecutable="true">
     <bpmn:extensionElements>
       <zeebe:userTaskForm id="userTaskForm_2e78cpa">{
@@ -391,15 +391,12 @@
     <bpmn:serviceTask id="Activity_check_input_data" name="Check input data">
       <bpmn:extensionElements>
         <zeebe:taskDefinition type="CheckInputData" />
-        <zeebe:ioMapping>
-          <zeebe:output source="=age" target="age" />
-          <zeebe:output source="=amount" target="amount" />
-        </zeebe:ioMapping>
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0qo052y</bpmn:incoming>
       <bpmn:outgoing>Flow_1hq54ic</bpmn:outgoing>
     </bpmn:serviceTask>
     <bpmn:boundaryEvent id="Event_wrong_data" name="Wrong data received" attachedToRef="Activity_check_input_data">
+      <bpmn:extensionElements />
       <bpmn:outgoing>Flow_wrong_data</bpmn:outgoing>
       <bpmn:errorEventDefinition id="ErrorEventDefinition_10jcyz8" errorRef="Error_1q5rdkr" />
     </bpmn:boundaryEvent>
@@ -408,7 +405,7 @@
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_wrong_data" sourceRef="Event_wrong_data" targetRef="Event_wrong_data_received" />
     <bpmn:sequenceFlow id="Flow_considered" sourceRef="Activity_consider_application" targetRef="Gateway_is_agreed" />
-    <bpmn:userTask id="Activity_consider_application" name="Consider application">
+    <bpmn:userTask id="Activity_consider_application" name="Consider application by credit manager">
       <bpmn:extensionElements>
         <zeebe:formDefinition formKey="camunda-forms:bpmn:userTaskForm_2hrhuel" />
       </bpmn:extensionElements>
@@ -426,16 +423,13 @@
     <bpmn:boundaryEvent id="Event_delay" name="One day passed" attachedToRef="Activity_consider_application">
       <bpmn:outgoing>Flow_delay</bpmn:outgoing>
       <bpmn:timerEventDefinition id="TimerEventDefinition_0whuuvg">
-        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT3S</bpmn:timeDuration>
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">P1D</bpmn:timeDuration>
       </bpmn:timerEventDefinition>
     </bpmn:boundaryEvent>
     <bpmn:sequenceFlow id="Flow_delay" sourceRef="Event_delay" targetRef="Activity_get_debt" />
     <bpmn:serviceTask id="Activity_get_debt" name="Get debt">
       <bpmn:extensionElements>
         <zeebe:taskDefinition type="GetDebtFlag" />
-        <zeebe:ioMapping>
-          <zeebe:output source="=isDebt" target="isDebt" />
-        </zeebe:ioMapping>
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_delay</bpmn:incoming>
       <bpmn:outgoing>Flow_0zlc04w</bpmn:outgoing>
