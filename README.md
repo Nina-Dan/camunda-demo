@@ -35,19 +35,19 @@ Now you've deployed your process and started a process instance.
 ## Format of input data
 
 {
-"firstName": "AAAA",
+  "firstName": "AAAA",
 
-"lastName": "AAAA",
+  "lastName": "AAAA",
 
-"surname": "AAAA",
+  "surname": "AAAA",
 
-"passNumber": "AANNNNNNN",
+  "passNumber": "AANNNNNNN",
 
-"dateOfBirth": "YYYY-MM-DD",
+  "dateOfBirth": "YYYY-MM-DD",
 
-"amount": "N",
+  "amount": "N",
 
-"term":	"N"
+  "term":	"N"
 }
 
 First name, last name , surname - alpha.
@@ -55,3 +55,6 @@ First name, last name , surname - alpha.
 Last name can be doubled (like AAA-BBB).
 
 Passport number - alphanumeric.
+
+To start process use command "http://localhost:8080/start" and send input-JSON.
+To cancel process use command "http://localhost:8080/stop" and send JSON with fields "passNumber", "message".

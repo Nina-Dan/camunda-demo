@@ -65,7 +65,6 @@ public class DemoCamundaApplication {
             Map<String, Object> variables = new HashMap<>();
             variables.put("age", newCreditApplication.getAge());
             variables.put("amount", Integer.valueOf(newCreditApplication.getAmount()));
-            variables.put("term", Integer.valueOf(newCreditApplication.getTerm()));
             log.debug("Variables to send: {} ", variables);
             client.newCompleteCommand(job.getKey())
                     .variables(variables)
