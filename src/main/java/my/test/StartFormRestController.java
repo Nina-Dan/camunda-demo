@@ -41,6 +41,7 @@ public class StartFormRestController {
         String passNumber = (String) variables.get("passNumber");
         String message = (String) variables.get("message");
         log.debug("Cancel application for passport number: {}", passNumber);
+        log.debug("The reason for cancellation: {}", message);
         zeebe.newPublishMessageCommand()
                 .messageName("cancel_application")
                 .correlationKey(passNumber)
