@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_07fj35g" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Web Modeler" exporterVersion="b37faf9" camunda:diagramRelationId="9e587fac-fd9a-4400-a534-e5f79cb0698e" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.1.0">
+  <decision id="Decision_risk" name="Decision risk">
+    <informationRequirement id="InformationRequirement_05pql5b">
+      <requiredInput href="#age" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1c2w20u">
+      <requiredInput href="#amount" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1ezr5pd">
+      <requiredInput href="#isDebt" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_06wa3vn">
+      <input id="Input_1" label="Age of applicant">
+        <inputExpression id="InputExpression_1" typeRef="number">
+          <text>age</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1nx03b4" label="Amount of money">
+        <inputExpression id="LiteralExpression_1b7b95j" typeRef="number">
+          <text>amount</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_12ohod0" label="Is debt">
+        <inputExpression id="LiteralExpression_0a9rxjz" typeRef="boolean">
+          <text>isDebt</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Risk" name="risk" typeRef="string">
+        <outputValues id="UnaryTests_0pi0h85">
+          <text>"Low","Medium","High"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_1l5dxi6">
+        <inputEntry id="UnaryTests_0z74dfk">
+          <text>[18..23[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qe35p0">
+          <text>&lt;=1000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_075qafz">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1h7r1p2">
+          <text>"Low"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ohb8fy">
+        <inputEntry id="UnaryTests_0yrzm8v">
+          <text>[18..23[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18tsoug">
+          <text>]1000..10000]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0o2wzsq">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1480tod">
+          <text>"Medium"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1nqk6gm">
+        <inputEntry id="UnaryTests_1pr0r6m">
+          <text>[18..23[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_186r7p8">
+          <text>&gt;10000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vbq3m9">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16k7bh3">
+          <text>"High"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0k68x0f">
+        <inputEntry id="UnaryTests_19kd6d2">
+          <text>[18..23[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bkvqey">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hzikya">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1yyu4cq">
+          <text>"High"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1xaicsq">
+        <inputEntry id="UnaryTests_1vrj9fo">
+          <text>[23..53[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1selcj1">
+          <text>&lt;=5000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qypvqy">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0pvmihi">
+          <text>"Low"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_02ye64t">
+        <inputEntry id="UnaryTests_0r0bdx3">
+          <text>[23..53[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16s45k0">
+          <text>]5000..50000]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nfsuub">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1yvl96l">
+          <text>"Medium"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1qllp7m">
+        <inputEntry id="UnaryTests_0a3ex8k">
+          <text>[23..53[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0emstq2">
+          <text>&gt;50000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0e8yzas">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0igl36g">
+          <text>"High"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1osxj4w">
+        <inputEntry id="UnaryTests_176i6nz">
+          <text>[23..53[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11o0xpf">
+          <text>&lt;=5000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17m3o3i">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04ziewf">
+          <text>"Medium"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1no1ahl">
+        <inputEntry id="UnaryTests_1jchw4z">
+          <text>[23..53[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1j5jj22">
+          <text>&gt;5000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mja9t4">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0iu2ou0">
+          <text>"High"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1omn8fx">
+        <inputEntry id="UnaryTests_12axno4">
+          <text>&gt;=53</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_181072d">
+          <text>&lt;10000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0o9zr2n">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1tjp4av">
+          <text>"Medium"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_10b6sf2">
+        <inputEntry id="UnaryTests_1fu3e6j">
+          <text>&gt;=53</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01sgcra">
+          <text>&gt;=10000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1djf4ip">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1linobm">
+          <text>"High"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_142pq18">
+        <inputEntry id="UnaryTests_1w0e04l">
+          <text>&gt;=53</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04325ya">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19nzt9u">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16ipf74">
+          <text>"High"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="age" name="Age" />
+  <inputData id="amount" name="Amount" />
+  <inputData id="isDebt" name="Debt" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_risk">
+        <dc:Bounds height="80" width="180" x="330" y="100" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_02hnsij" dmnElementRef="age">
+        <dc:Bounds height="45" width="125" x="157" y="307" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1u3rdk9" dmnElementRef="amount">
+        <dc:Bounds height="45" width="125" x="367" y="317" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1xh6yc6" dmnElementRef="isDebt">
+        <dc:Bounds height="45" width="125" x="618" y="308" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0bqrkx1" dmnElementRef="InformationRequirement_05pql5b">
+        <di:waypoint x="220" y="307" />
+        <di:waypoint x="375" y="200" />
+        <di:waypoint x="375" y="180" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0z0mcjg" dmnElementRef="InformationRequirement_1c2w20u">
+        <di:waypoint x="430" y="317" />
+        <di:waypoint x="420" y="200" />
+        <di:waypoint x="420" y="180" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_106d3ws" dmnElementRef="InformationRequirement_1ezr5pd">
+        <di:waypoint x="681" y="308" />
+        <di:waypoint x="465" y="200" />
+        <di:waypoint x="465" y="180" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
